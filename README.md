@@ -4,7 +4,7 @@
 
 This is a sample PhoneGap project for iOS; consequently, you can clone this repo and open it in XCode. This App makes use of the App47 SDK (via the [App47 PhoneGap plugin](https://github.com/App47/phonegap-plugins)) for mobile analytics including sessions, timed events, generic events, and logging. What's more, this project uses App configurations, which allow for runtime updates of desired variables, etc. 
 
-You will still need to set up the [App47 SDK in your XCode project](http://app47.com/wiki/doku.php?id=configure:iosapp); be sure to also specify either `*` or `api.app47.mobi` as an allowed host (via the `ExternalHosts` key) in the PhoneGap.plist file. 
+You will still need to set up the [App47 SDK in your XCode project](http://app47.com/wiki/doku.php?id=configure:iosapp); be sure to also specify either `*` or `api.app47.mobi` as an allowed host (via the `ExternalHosts` key) in the `PhoneGap.plist` file. 
 
 Files to pay attention to:
 
