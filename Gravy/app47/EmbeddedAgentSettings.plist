@@ -3,13 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>application id</key>
-	<string>4e5d36392fc7640001000020</string>
+	<string>4f61096c31d137000100002f</string>
 	<key>configuration update frequency</key>
 	<real>0.5</real>
 	<key>delay data upload interval</key>
 	<integer>10</integer>
-	<key>send actual device identifier</key>
-	<true/>
 	<key>show network activity</key>
 	<true/>
 </dict>

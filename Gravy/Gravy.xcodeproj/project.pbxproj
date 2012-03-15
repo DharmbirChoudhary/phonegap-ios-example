@@ -34,10 +34,16 @@
 		F61157F7140D2C6F0067391A /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = F61157F6140D2C6F0067391A /* PhoneGap.plist */; };
 		F61157FB140D2C6F0067391A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F61157FA140D2C6F0067391A /* AppDelegate.m */; };
 		F6115804140D31AF0067391A /* www in Resources */ = {isa = PBXBuildFile; fileRef = F6115803140D31AF0067391A /* www */; };
-		F6115848140D77060067391A /* EmbeddedAgentSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6115841140D77060067391A /* EmbeddedAgentSettings.plist */; };
-		F6115849140D77060067391A /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F6115846140D77060067391A /* GTMStackTrace.m */; };
-		F611584A140D77060067391A /* libEmbeddedAgent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6115847140D77060067391A /* libEmbeddedAgent.a */; };
 		F611584D140D83200067391A /* App47PGPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F611584C140D83200067391A /* App47PGPlugin.m */; };
+		F61DADB715114190009774B1 /* EmbeddedAgentSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F61DADA215114190009774B1 /* EmbeddedAgentSettings.plist */; };
+		F61DADB815114190009774B1 /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADA715114190009774B1 /* GTMStackTrace.m */; };
+		F61DADB915114190009774B1 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADAB15114190009774B1 /* NSObject+SBJSON.m */; };
+		F61DADBA15114190009774B1 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADAD15114190009774B1 /* NSString+SBJSON.m */; };
+		F61DADBB15114190009774B1 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADAF15114190009774B1 /* SBJSON.m */; };
+		F61DADBC15114190009774B1 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADB115114190009774B1 /* SBJsonBase.m */; };
+		F61DADBD15114190009774B1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADB315114190009774B1 /* SBJsonParser.m */; };
+		F61DADBE15114190009774B1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F61DADB515114190009774B1 /* SBJsonWriter.m */; };
+		F61DADBF15114190009774B1 /* libEmbeddedAgent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F61DADB615114190009774B1 /* libEmbeddedAgent.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,15 +79,28 @@
 		F61157FA140D2C6F0067391A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		F61157FD140D2C6F0067391A /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		F6115803140D31AF0067391A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
-		F6115840140D77060067391A /* EmbeddedAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbeddedAgent.h; sourceTree = "<group>"; };
-		F6115841140D77060067391A /* EmbeddedAgentSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmbeddedAgentSettings.plist; sourceTree = "<group>"; };
-		F6115843140D77060067391A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		F6115844140D77060067391A /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjC2Runtime.h; sourceTree = "<group>"; };
-		F6115845140D77060067391A /* GTMStackTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStackTrace.h; sourceTree = "<group>"; };
-		F6115846140D77060067391A /* GTMStackTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStackTrace.m; sourceTree = "<group>"; };
-		F6115847140D77060067391A /* libEmbeddedAgent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEmbeddedAgent.a; sourceTree = "<group>"; };
-		F611584B140D83200067391A /* App47PGPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; path = App47PGPlugin.h; sourceTree = "<group>"; };
+		F611584B140D83200067391A /* App47PGPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App47PGPlugin.h; sourceTree = "<group>"; };
 		F611584C140D83200067391A /* App47PGPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App47PGPlugin.m; sourceTree = "<group>"; };
+		F61DADA115114190009774B1 /* EmbeddedAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmbeddedAgent.h; sourceTree = "<group>"; };
+		F61DADA215114190009774B1 /* EmbeddedAgentSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmbeddedAgentSettings.plist; sourceTree = "<group>"; };
+		F61DADA415114190009774B1 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		F61DADA515114190009774B1 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjC2Runtime.h; sourceTree = "<group>"; };
+		F61DADA615114190009774B1 /* GTMStackTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStackTrace.h; sourceTree = "<group>"; };
+		F61DADA715114190009774B1 /* GTMStackTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStackTrace.m; sourceTree = "<group>"; };
+		F61DADA915114190009774B1 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		F61DADAA15114190009774B1 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		F61DADAB15114190009774B1 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		F61DADAC15114190009774B1 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		F61DADAD15114190009774B1 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		F61DADAE15114190009774B1 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		F61DADAF15114190009774B1 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		F61DADB015114190009774B1 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		F61DADB115114190009774B1 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		F61DADB215114190009774B1 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		F61DADB315114190009774B1 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		F61DADB415114190009774B1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		F61DADB515114190009774B1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		F61DADB615114190009774B1 /* libEmbeddedAgent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEmbeddedAgent.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +122,7 @@
 				F61157D1140D2C6F0067391A /* MobileCoreServices.framework in Frameworks */,
 				F61157D3140D2C6F0067391A /* CoreMedia.framework in Frameworks */,
 				F61157DE140D2C6F0067391A /* PhoneGap.framework in Frameworks */,
-				F611584A140D77060067391A /* libEmbeddedAgent.a in Frameworks */,
+				F61DADBF15114190009774B1 /* libEmbeddedAgent.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +139,7 @@
 		F61157A8140D2C6E0067391A = {
 			isa = PBXGroup;
 			children = (
-				F611583F140D77060067391A /* app47 */,
+				F61DADA015114190009774B1 /* app47 */,
 				F6115803140D31AF0067391A /* www */,
 				F61157D4140D2C6F0067391A /* Gravy */,
 				F61157B9140D2C6F0067391A /* Frameworks */,
@@ -246,26 +265,47 @@
 			name = Plugins;
 			sourceTree = "<group>";
 		};
-		F611583F140D77060067391A /* app47 */ = {
+		F61DADA015114190009774B1 /* app47 */ = {
 			isa = PBXGroup;
 			children = (
-				F6115840140D77060067391A /* EmbeddedAgent.h */,
-				F6115841140D77060067391A /* EmbeddedAgentSettings.plist */,
-				F6115842140D77060067391A /* GoogleToolbox */,
-				F6115847140D77060067391A /* libEmbeddedAgent.a */,
+				F61DADA115114190009774B1 /* EmbeddedAgent.h */,
+				F61DADA215114190009774B1 /* EmbeddedAgentSettings.plist */,
+				F61DADA315114190009774B1 /* GoogleToolbox */,
+				F61DADA815114190009774B1 /* JSON */,
+				F61DADB615114190009774B1 /* libEmbeddedAgent.a */,
 			);
 			path = app47;
 			sourceTree = "<group>";
 		};
-		F6115842140D77060067391A /* GoogleToolbox */ = {
+		F61DADA315114190009774B1 /* GoogleToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				F6115843140D77060067391A /* GTMDefines.h */,
-				F6115844140D77060067391A /* GTMObjC2Runtime.h */,
-				F6115845140D77060067391A /* GTMStackTrace.h */,
-				F6115846140D77060067391A /* GTMStackTrace.m */,
+				F61DADA415114190009774B1 /* GTMDefines.h */,
+				F61DADA515114190009774B1 /* GTMObjC2Runtime.h */,
+				F61DADA615114190009774B1 /* GTMStackTrace.h */,
+				F61DADA715114190009774B1 /* GTMStackTrace.m */,
 			);
 			path = GoogleToolbox;
+			sourceTree = "<group>";
+		};
+		F61DADA815114190009774B1 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F61DADA915114190009774B1 /* JSON.h */,
+				F61DADAA15114190009774B1 /* NSObject+SBJSON.h */,
+				F61DADAB15114190009774B1 /* NSObject+SBJSON.m */,
+				F61DADAC15114190009774B1 /* NSString+SBJSON.h */,
+				F61DADAD15114190009774B1 /* NSString+SBJSON.m */,
+				F61DADAE15114190009774B1 /* SBJSON.h */,
+				F61DADAF15114190009774B1 /* SBJSON.m */,
+				F61DADB015114190009774B1 /* SBJsonBase.h */,
+				F61DADB115114190009774B1 /* SBJsonBase.m */,
+				F61DADB215114190009774B1 /* SBJsonParser.h */,
+				F61DADB315114190009774B1 /* SBJsonParser.m */,
+				F61DADB415114190009774B1 /* SBJsonWriter.h */,
+				F61DADB515114190009774B1 /* SBJsonWriter.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,7 +373,7 @@
 				F61157F5140D2C6F0067391A /* Capture.bundle in Resources */,
 				F61157F7140D2C6F0067391A /* PhoneGap.plist in Resources */,
 				F6115804140D31AF0067391A /* www in Resources */,
-				F6115848140D77060067391A /* EmbeddedAgentSettings.plist in Resources */,
+				F61DADB715114190009774B1 /* EmbeddedAgentSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +402,14 @@
 			files = (
 				F61157DC140D2C6F0067391A /* main.m in Sources */,
 				F61157FB140D2C6F0067391A /* AppDelegate.m in Sources */,
-				F6115849140D77060067391A /* GTMStackTrace.m in Sources */,
 				F611584D140D83200067391A /* App47PGPlugin.m in Sources */,
+				F61DADB815114190009774B1 /* GTMStackTrace.m in Sources */,
+				F61DADB915114190009774B1 /* NSObject+SBJSON.m in Sources */,
+				F61DADBA15114190009774B1 /* NSString+SBJSON.m in Sources */,
+				F61DADBB15114190009774B1 /* SBJSON.m in Sources */,
+				F61DADBC15114190009774B1 /* SBJsonBase.m in Sources */,
+				F61DADBD15114190009774B1 /* SBJsonParser.m in Sources */,
+				F61DADBE15114190009774B1 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

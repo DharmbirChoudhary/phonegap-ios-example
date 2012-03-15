@@ -14,7 +14,7 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>app47.com</string>
+		<string>*</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

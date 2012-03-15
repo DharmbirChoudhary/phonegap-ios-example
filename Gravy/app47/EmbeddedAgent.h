@@ -1,7 +1,7 @@
 //
 //  EmbeddedAgent.h
 //
-//  Copyright 2011 FoKL. All rights reserved.
+//  Copyright 2011 App47. All rights reserved.
 //
 
 
@@ -32,7 +32,7 @@
 //
 // Use configureAgentWithAppID to configure the agent with the app id given on the web site and 
 // all default settings for the embedded agent. 
-// See http://www.appmetrics.com/kb/embeddedagent/default_settings.html for more information.
+// See https://cirrus.app47.com/resource_center for more information.
 
 + (void) configureAgentWithAppID:(NSString *) appID;
 
@@ -48,6 +48,8 @@
 // in your "Events" tab for the App and will be broken out by name.
 + (void) sendGenericEvent:(NSString *) name;
 + (void) sendGenericEvent:(NSString *) name tags:(NSArray *) tags;
++ (void) sendGenericEvent:(NSString *) name tags:(NSArray *) tags userInfo:(NSDictionary *)userInfo;
++ (void) sendGenericEvent:(NSString *) name userInfo:(NSDictionary *)userInfo;
 
 //////////////////////////////////////////////////////////////////
 // Timed events allow you to keep track of significant events in your app and how long they take.
@@ -70,6 +72,13 @@
 + (NSString *) startTimedEvent:(NSString *)name userInfo:(NSDictionary *)userInfo;
 + (NSString *) startTimedEvent:(NSString *)name tags:(NSArray *)tags userInfo:(NSDictionary *)userInfo;
 
+// To clear a timed event that you do not want sent to the server. This will remove
+// it from the local cache.
++ (void) clearTimedEvent:(NSString *) uuid;
+// Clear out any time events older than the given time interval. The value is in 
+// seconds. Use the value 0 to clear all currently cached timed events.
++ (void) clearTimedEventsOlderThanTimeInterval:(NSTimeInterval)timeInternval;
+
 // To end a timed event, pass the uuid received when creating the event using one of the methods below.
 // If additional tags or userInfo dictionaries are passed in when ending an event, the lists/dictionaries
 // will be merged and any duplicates removed. In the case of the userInfo NSDictionary, any duplicate
@@ -80,25 +89,112 @@
 + (void) endTimedEvent:(NSString *)uuid tags:(NSArray *)tags userInfo:(NSDictionary *)userInfo;
 
 //////////////////////////////////////////////////////////////////
-// Configuration 
-+ (NSArray *) allKeysForConfigurationGroup:(NSString *) groupName;
+// Configuration allows you to get updated configuration from the service based on application data
+// determined at runtime like App version, OS Version and/or platform. Configuration items are organizied
+// by groups and must be retrieved by group name and key name. You may use the defaultValue signature to 
+// pass in a default to use if the configuration item is not found by group/key name. If a default value is
+// not given, and the key is not found in the requested group, the value nil is returned.
+// 
+// Use the "Configuration" tab on the web interface to manage the group configuration items. The agent will update
+// this configuration information based on the frequency set in the EmbeddedAgentSettings.plist file. This is
+// based on the parameter "configuration update frequency".
+//
+//
+// Retrieve all group names and all keys for a given group.
 + (NSArray *) configurationGroupNames;
++ (NSArray *) allKeysForConfigurationGroup:(NSString *) groupName;
 
+// Retrieve a configuration item as a string.
 + (NSString *) configurationStringForKey:(NSString *) key group:(NSString *)group;
 + (NSString *) configurationStringForKey:(NSString *) key group:(NSString *)group defaultValue:(NSString *)defaultValue;
+// 
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
+//
++ (NSString *) configurationStringForKey:(NSString *) key;
++ (NSString *) configurationStringForKey:(NSString *) key defaultValue:(NSString *)defaultValue;
 
+// Retrieve a configuration item as a numrical value.
 + (NSNumber *) configurationNumberForKey:(NSString *) key group:(NSString *)group;
 + (NSNumber *) configurationNumberForKey:(NSString *) key group:(NSString *)group defaultValue:(NSNumber *)defaultValue;
+// 
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
+//
++ (NSNumber *) configurationNumberForKey:(NSString *) key;
++ (NSNumber *) configurationNumberForKey:(NSString *) key defaultValue:(NSNumber *)defaultValue;
 
+// Retrieve a configuration item as a date
 + (NSDate *) configurationDateForKey:(NSString *) key group:(NSString *)group;
 + (NSDate *) configurationDateForKey:(NSString *) key group:(NSString *)group defaultValue:(NSDate *)defaultValue;
+// 
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
+//
++ (NSDate *) configurationDateForKey:(NSString *) key;
++ (NSDate *) configurationDateForKey:(NSString *) key defaultValue:(NSDate *)defaultValue;
 
+// Retrieve a configuration item as a boolean value.
 + (BOOL) configurationBoolForKey:(NSString *) key group:(NSString *)group;
 + (BOOL) configurationBoolForKey:(NSString *) key group:(NSString *)group defaultValue:(BOOL)defaultValue;
+// 
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
+//
++ (BOOL) configurationBoolForKey:(NSString *) key;
++ (BOOL) configurationBoolForKey:(NSString *) key defaultValue:(BOOL)defaultValue;
 
+// Retrieve a configuration item as a file, the file is wrapped in an NSData object and can be used for 
+// webviews, UIImages and the ilk.
++ (NSData *) configurationFileForKey:(NSString *) key group:(NSString *) group;
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
++ (NSData *) configurationFileForKey:(NSString *) key;
+
+
+// Retrieve a configuration item as a base object.
 + (id) configurationObjectForKey:(NSString *) key group:(NSString *)group;
 + (id) configurationObjectForKey:(NSString *) key group:(NSString *)group defaultValue:(id)defaultValue;
+// 
+// Retrieve a configuration value by key only. If more than one configuration group has the requested 
+// key, the value in the first configuration group is returned. Order of the configuration groups is
+// arbitrary. See + (NSArray *) configurationObjectsForKey:(NSString *) key for a list of all values
+// for a given configuration item.
+//
++ (id) configurationObjectForKey:(NSString *) key;
++ (id) configurationObjectForKey:(NSString *) key defaultValue:(id)defaultValue;
++ (NSArray *) configurationObjectsForKey:(NSString *) key;
 
+// Configuration updates happen in a background thread, subsequently the App can be notified when 
+// the configuration of a group did change. You will recieved one message for each configuration group
+// Change.
+extern NSString * const EmbeddedAgentAppConfigurationGroupDidInsert;
+extern NSString * const EmbeddedAgentAppConfigurationGroupDidUpdate;
+extern NSString * const EmbeddedAgentAppConfigurationGroupDidDelete;
+// Each message will contain a single value in the userInfo with the following key. The value returned
+// by the key is the name of the group that was either added, updated, or deleted.
+extern NSString * const EmbeddedAgentAppConfigurationGroupNameKey;
+// Alternatively, you can register a single notification when any configuration group changes.
+// The name of the configuration group and specific action is NOT sent, only the fact that 
+// the configurationg roup was change.
+extern NSString * const EmbeddedAgentAppConfigurationGroupDidChange;
+
+// Register with the NSNotification center to receive these events.
+// Give example
+
+//////////////////////////////////////////////////////////////////
+// Exception handling and crash loggin
++ (void) InstallExceptionHandlers;
 
 //////////////////////////////////////////////////////////////////
 // Logging.
