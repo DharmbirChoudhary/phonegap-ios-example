@@ -10,8 +10,8 @@
         var timedEventID = 0;
         //starting a timed event -- this returns an ID which is then 
         //used to mark the completion of the event
-//        window.plugins.App47.startTimedEvent(["iOS deal submission"],  
-//                    function(result){ timedEventID = result; });        
+        window.plugins.App47.startTimedEvent(["iOS deal submission"],  
+                    function(result){ timedEventID = result; });
         
         //runtime configuration, in this case in group PG with a key of endpoint_2
         //the value returned is a string (URL). The use case here is that various 
@@ -51,9 +51,9 @@
         });
         //end the timed event started above
         if(timedEventID != 0){
-//               	window.plugins.App47.endTimedEvent([timedEventID]); 
+          window.plugins.App47.endTimedEvent([timedEventID]);
         }
-               return false;       
+        return false;       
     });
  });
  
