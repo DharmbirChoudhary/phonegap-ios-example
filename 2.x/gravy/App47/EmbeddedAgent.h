@@ -103,6 +103,15 @@
 // Retrieve all group names and all keys for a given group.
 + (NSArray *) configurationGroupNames;
 + (NSArray *) allKeysForConfigurationGroup:(NSString *) groupName;
+// Return a NSDictionary for the given group name. The NSDictionary will have an entry for each kev value pair
+// listed on the Admin UI web site. As expected, the NSDictionary key will be the key from
+// the AdminUI and the NSDictionary value will be the value. To loop through the dictionary and print
+// out it's contents:
+//  NSDictionary *groupData = [EmbeddedAgent configurationGroupAsDictionary:groupName];
+//  for (NSString *key in [groupData allKeys])
+//    NSLog(@"Key %@ - value %@", key, [groupData valueForKey:key]);
+
++ (NSDictionary *) configurationGroupAsDictionary:(NSString *) groupName;
 
 // Retrieve a configuration item as a string.
 + (NSString *) configurationStringForKey:(NSString *) key group:(NSString *)group;
