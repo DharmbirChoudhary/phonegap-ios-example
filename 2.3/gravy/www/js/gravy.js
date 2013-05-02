@@ -2,17 +2,62 @@
  
  var enpointURL = "http://ankara.herokuapp.com";
  
+ $(document).ready(function(){ $(document).bind('deviceready', function(){ onDeviceReady() })});   
  
+ function onDeviceReady(){
+    //log call, in this case of type info. Other choices include debug, warn, and error.
+    window.plugins.App47.info(["android cordova sample app started up"]);
+ }
+
  $(function(){
 
     $("#submit_deal").submit(function(event, info) {   
-		window.plugins.App47.warn(["DEBUG iOS cordova sample app deal submitted!"]);
+		    
+        window.plugins.App47.debug(["DEBUG android cordova sample app deal submitted!"]);             
+
+        window.plugins.App47.getConfigurationGroupNames(function(result){
+            var data = JSON.parse(result);
+            console.log("first group name (via getConfigurationGroupNames) from data is " + data[0]);
+          }, 
+          function(error){
+            console.log("got an error " + error);
+          });          
+  
+
         var timedEventID = 0;
         //starting a timed event -- this returns an ID which is then 
         //used to mark the completion of the event
-        window.plugins.App47.startTimedEvent(["iOS deal submission"],  
-                    function(result){ timedEventID = result; });
+        window.plugins.App47.startTimedEvent(["deal submission"], function(result){ timedEventID = result; });        
         
+
+        window.plugins.App47.getConfiguration("PG Demo", 
+          function(result){
+            var demoData = JSON.parse(result);
+            console.log("PG Demo amount (via getConfiguration) is " + demoData['amount']);
+          }, 
+          function(error){
+            console.log("got an error " + error);
+          });
+
+        window.plugins.App47.getValue("PG Demo", "amount", 
+          function(result){
+            console.log("PG Demo amount (via getValue) is " + result);
+          }, 
+          function(error){
+            console.log("PG Demo amount errored out " + error);
+          });
+
+
+        window.plugins.App47.getConfiguration("Demo", 
+          function(result){
+            console.log("got a DEMO result! " + result);
+            window.plugins.App47.debug("got a result from DEMO getConfiguration: " + result);
+            var demoData2 = JSON.parse(result);
+            console.log("Demo amount (via getConfiguration) is " + demoData2['test']);
+          }, 
+          function(error){
+            console.log("got an error with Group DEMO " + error);
+          });
         //runtime configuration, in this case in group PG with a key of endpoint_2
         //the value returned is a string (URL). The use case here is that various 
         //values can be updated/changed without redeploying new instances of an App
@@ -46,14 +91,14 @@
                      
                 });
                 //generic events have no notion of time -- they are similar to log stmts
-               window.plugins.App47.sendGenericEvent(["iOS deal submitted"]);
+               window.plugins.App47.sendGenericEvent(["Android deal submitted"]);
               }
         });
         //end the timed event started above
         if(timedEventID != 0){
-          window.plugins.App47.endTimedEvent([timedEventID]);
+               	window.plugins.App47.endTimedEvent([timedEventID]); 
         }
-        return false;       
+               return false;       
     });
  });
  
