@@ -21,6 +21,7 @@ and in the `didFinishLaunchingWithOptions` method add:
 ```
 <plugin name="App47" value="App47PGPlugin" />
 ```
+8. See the source code in this project  for details on the Agent API.
 
 
 # License
